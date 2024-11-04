@@ -1,3 +1,7 @@
+---
+title: Guerrilla Ticket
+template: base.html
+---
 {% extends "base.html" %}
 
 Tired of someone parking illegally, inconsiderately, dangerously, or just like an entitled jerk? Issue them a…

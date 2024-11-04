@@ -2,17 +2,17 @@
 <html lang="en-us">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} &sdot; {% endif %}{{ site.title }}</title>
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-    <meta name="theme-color" content="{{ site.theme-color }}">
+    <title>{% if page.title %}{{ page.title }} &sdot; {% endif %}{\{\ site.title \}\}</title>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}\{\{ site.title \}\}{% endif %}">
+    <meta property="og:site_name" content="\{\{ site.title \}\}">
+    <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}\{\{ site.title \}\}{% endif %}">
+    <meta name="theme-color" content="\{\{ site.theme-color \}\}">
 
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
       :root {
-        --theme-color: {{ site.theme-color }};
+        --theme-color: \{\{ site.theme-color \}\};
         --theme-color-contrast: black;
 
         --bg: var(--theme-color);
@@ -131,10 +131,10 @@
     </style>
   </head>
   <body>
-    {{ content | replace: '<a href="http', '<a rel="nofollow noopener noreferrer" target="_blank" href="http' }}
+    {% block content %} {% endblock %}
 
     <footer>
-      {{ site.time | date: '%Y-%m-%d' }} | {{ page.url | prepend: site.domain }}
+      {{ ts | date(format='%Y-%m-%d') }} | \{\{ page.url | prepend: site.domain \}\}
     </footer>
   </body>
 </html>
